@@ -1,23 +1,21 @@
 import Header from '../components/Header'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import Data from '../data'
 
+export default function EmployeePage( { props }) {
+    
+    const params = useParams()
+    const employeeName = params.name
+    const employeeFilter = Data.filter(
+        curr => curr.name === employeeName
+    )
 
-export default function EmployeePage( { loader }) {
-    const [employee, setEmployee] = useState({})
-    const { name } = useParams()
-    // const employeeName = params.name
-    
-    
+    const employee = employeeFilter[0]
     
     useEffect(() => {
-        const employeeFilter = Data.filter(
-            curr => curr.name === name
-        )
-        setEmployee(employeeFilter[0])
-        console.log(`name is ${name}`)
-    }, [loader])
+        console.log(`name is ${employee}`)
+    }, [])
 
     const loadEmployee = () => {
         return (
@@ -55,6 +53,6 @@ export default function EmployeePage( { loader }) {
     }
 
     return (
-            employee ? loadEmployee() : selectPrompt()
+            employee && employeeName ? loadEmployee() : selectPrompt()
     )
 }

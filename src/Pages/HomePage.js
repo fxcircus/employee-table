@@ -4,12 +4,14 @@ import EmployeeList from '../components/EmployeeList'
 import { Link } from 'react-router-dom'
 
 
-export default function HomePage( { employees, loader, state }) {
+export default function HomePage( { employees }) {
     return (
         <div className="home-page">
             <Header title="Employee Directory"/>
             <SearchBar />
-            <EmployeeList employees={ employees } loader={loader} state={state}/>
+            {/* <Link to="/2"> */}
+                <EmployeeList employees={ employees }/>
+            {/* </Link> */}
         </div>
     )
 }
