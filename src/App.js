@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import EmployeesData from './data'
+import { Routes, Route } from 'react-router-dom'
+import EmployeePage from './Pages/EmployeePage'
+import HomePage from './Pages/HomePage'
+import { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [ loader, setLoader] = useState(false)
+
+    return(
+        <div className='app'>
+            <HomePage employees={ EmployeesData } loader={loader} state={setLoader}/>
+            <Routes>
+                <Route path='/' element={<EmployeePage loader={loader}/>}/>
+                <Route path='/:name' element={<EmployeePage loader={loader}/>}/>
+            </Routes>
+        </div>
+    )
 }
-
-export default App;

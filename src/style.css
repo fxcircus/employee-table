@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+}
+
+.home-page, .employee-page {
+    min-width: 20vw;
+}
+
+label, .row, input {
+    border: solid lightgray;
+}
+
+input {
+    width: 90%;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.emp-card {
+    display: flex;
+    text-align: left;
+}
+
+.emp-name {
+    font-weight: bold;
+  }
+  
+.emp-plays {
+    color: rgb(41, 124, 151);
+}
+
+.emp-quote {
+    font-style: oblique;
+    color: darkgrey;
+}
+
+.emp-img-sm {
+    max-height: 70px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.emp-img-lg {
+    max-height: 150px;
+    max-width: 150px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.main-first-row {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
